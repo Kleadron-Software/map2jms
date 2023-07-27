@@ -18,7 +18,7 @@ namespace map2jms
         //string halotoolPath = "";
 
         public static Dictionary<string, string> materialRemap = new Dictionary<string, string>();
-
+        //public static Dictionary<string, string> textureToPng = new Dictionary<string, string>();
 
         static void Main(string[] args)
         {
@@ -28,7 +28,7 @@ namespace map2jms
             {
                 Console.WriteLine("Usage: map2jms.exe (path-to-quake2-bsp) (path-to-export-jms)");
                 Console.WriteLine("Example: map2jms bumbus.bsp bumbus.jms");
-                Console.WriteLine("You should probably set up a batch file to do this automatically with full file paths.");
+                //Console.WriteLine("You should probably set up a batch file to do this automatically with full file paths.");
 
                 if (Debugger.IsAttached)
                     Console.ReadLine();
@@ -56,7 +56,17 @@ namespace map2jms
                     materialRemap[nameFrom] = nameTo;
                 }
             }
-            
+
+            //Console.WriteLine("Discovering Textures");
+
+            //string[] pngFiles = Directory.GetFiles(Path.GetFullPath("halo/textures/"), "*.png", SearchOption.AllDirectories);
+
+            //foreach(string pngPath in pngFiles)
+            //{
+            //    string name = Path.GetFileNameWithoutExtension(pngPath);
+            //    textureToPng[name] = pngPath;
+            //    //Console.WriteLine(name + " = " + pngPath);
+            //}
 
             //string inFilePath = "spasm";
             //string outFilePath = @"E:\Games\Steam\steamapps\common\HCEEK\data\digsite\levels\spasm\models\spasm";

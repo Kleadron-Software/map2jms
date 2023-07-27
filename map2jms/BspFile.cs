@@ -233,6 +233,7 @@ namespace map2jms
                 string texPngPath = "halo/textures/" + texName + ".png";
                 if (File.Exists(texPngPath))
                 {
+                    // this is bad and I should probably allow tif files instead
                     Bitmap bitmap = new Bitmap(texPngPath);
                     info.fileTexWidth = bitmap.Width;
                     info.fileTexHeight = bitmap.Height;
@@ -248,12 +249,11 @@ namespace map2jms
                 info.textureNameIndex = uniqueTextureNames.IndexOf(texName);
 
                 // name deduplication for easy material writing
-                if (info.textureNameIndex == -1 && !texName.StartsWith("skip"))
+                if (info.textureNameIndex == -1 && texName != "tools/skip")
                 {
-                    if (texName == "playerclip")
-                    {
-                        texName = "playerclip*";
-                    }
+                    if (Program.materialRemap.ContainsKey(texName))
+                        texName = Program.materialRemap[texName];
+
                     uniqueTextureNames.Add(texName);
                     info.textureNameIndex = uniqueTextureNames.Count - 1;
                 }
