@@ -68,8 +68,6 @@ namespace map2jms
             //    //Console.WriteLine(name + " = " + pngPath);
             //}
 
-            //string inFilePath = "spasm";
-            //string outFilePath = @"E:\Games\Steam\steamapps\common\HCEEK\data\digsite\levels\spasm\models\spasm";
             string bspPath = Path.GetFullPath(args[0]);
             string jmsPath = Path.GetFullPath(args[1]);
             string jmsTempPath = jmsPath + ".tmp";
